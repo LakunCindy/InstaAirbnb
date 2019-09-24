@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {{ include('generic/header.html.twig') }}
+{% endblock %}
+
+{% block body %}
+<html>
+<head>
+    <title>Formulaire 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<form>
+    <br>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="text" class="form-control" id="title" placeholder="Title">
+        </div>
+    </div>
+    <br>
+    <div class="input-group col-md-6">
+        <input type="text" class="form-control" aria-label="Text input with dropdown" placeholder="Price">
+        <select id="change" class="form-control col-md-2">
+            <option selected>Change</option>
+            <option>$</option>
+            <option>€</option>
+            <option>¥</option>
+            <option>£</option>
+        </select>
+    </div>
+    <br>
+    <p class="titre">
+        <b>Content :</b> <Font size="1pt"></Font>
+    </p>
+    <textarea name="comments"  value="message" rows="5" cols="50"></textarea>
+    <br>
+    <br>
+    <p id="buttons">
+        <input type="submit" value="Envoyer" />
+        <input type="reset" value="Recommencer" />
+    </p>
+</form>
+<button><a href="index.php">Formulaire 1</a></button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{%endblock %}

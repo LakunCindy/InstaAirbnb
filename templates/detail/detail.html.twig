@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {{ include('generic/header.html.twig') }}
+{% endblock %}
+
+{% block body %}
+
+    {% for announcement in announcements %}
+        {% if (announcement.id == id) %}
+        <ul>
+            <li>
+                {{ announcement.id }}
+                {{ announcement.title }}
+                {{ announcement.content }}
+                {{ announcement.price }}
+                {{ announcement.createdDate | date}}
+            </li>
+        </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {{ include('generic/header.html.twig') }}
+{% endblock %}
+
+{% block body %}
+
+    {% for announcement in announcements %}
+
+        <ul>
+            <li>
+                <a href="{{ path('Detail', {id:announcement.id}) }}">{{ announcement.title}}</a>
+
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
