@@ -1,5 +1,5 @@
 {
-    "namoooo": "Cindy LAKUN Marco Rodriguez",
+    "authors": [{"name": "Cindy Lakun"},{"name": "Marco Rodriguez"},{"name": "Charles Riguidel"}],
     "type": "project",
     "license": "proprietary",
     "require": {
