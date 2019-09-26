@@ -2,6 +2,9 @@
 
 
 namespace App\Controller;
+use App\Entity\Housing;
+use App\Entity\User;
+use App\Services\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PageController extends AbstractController
 {
+    private $userManager;
     /**
      * @Route("/announcements/{id}",
      *     defaults={"id"=1},
@@ -17,19 +21,15 @@ class PageController extends AbstractController
      *     )
      */
 
+    public function __construct(UserManager $userManager)
+    {
+        $this->userManager = $userManager;
+    }
+
     public function listAnnouncement(){
+        $limit = 10;
+        $announcements = $this->userManager->findAnnouncement($limit);
 
-        for($i = 1; $i<=10; $i++){
-            $announcements[] = [
-                'id' =>$i,
-                'title'=>'Chicken',
-                'content'=>"Love KFC",
-                'price'=>"7€ only Tuesday",
-                'createdDate'=>new\DateTime()
-            ];
-
-
-        }
         return $this->render('list/page.html.twig', [ "announcements" => $announcements] );
     }
 }

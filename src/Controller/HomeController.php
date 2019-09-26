@@ -2,12 +2,16 @@
 
 
 namespace App\Controller;
+use App\Entity\Housing;
+use App\Services\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
+
+    private $userManager;
     /**
      * @Route(
      *     "/",
@@ -15,27 +19,15 @@ class HomeController extends AbstractController
      * )
      */
 
+    public function __construct(UserManager $userManager)
+    {
+        $this->userManager = $userManager;
+    }
+
     public function home(){
-
-        $announcements = [
-            [
-
-                "id" => 1,
-                "title" =>"Poulet" ,
-                "content" =>"Love KFC",
-                "price" =>"Bucket 7€ only tuesday",
-                "createdDate" => new \Datetime
-            ],[
-
-                "id" => 2,
-                "title" =>"Sport" ,
-
-            ]
-        ];
+        $limit = 2;
+        $announcements = $this->userManager->findAnnouncement($limit);
 
         return $this->render('home/home.html.twig', ["announcements" => $announcements] );
     }
-
-
-
 }

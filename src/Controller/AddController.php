@@ -3,15 +3,28 @@
 namespace App\Controller;
 
 
-use App\DTO\Task;
-use App\Form\TaskType;
+use App\DTO\CreationHousing;
+use App\Entity\Housing;
+use App\Form\CreationHousingType;
+use App\Services\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 class AddController extends AbstractController
 {
+    private $userManager;
+
+    /**
+     * AddController constructor.
+     */
+    public function __construct(UserManager $userManager)
+    {
+        $this->userManager=$userManager;
+    }
+
     /**
      * @Route("/announcements/add",
      * methods={"GET","POST"},
@@ -22,13 +35,18 @@ class AddController extends AbstractController
 
     public function index(Request $request)
     {
-        $task = new Task();
-        $form = $this->createForm(TaskType::class, $task);
+        //Formulaire LA VUE DONC PAS TOUCHER
+        $creationHousing = new CreationHousing();
+        $form = $this->createForm(CreationHousingType::class, $creationHousing);
         $form->handleRequest($request);
+
+        //condition de push PAS TOUCHER
         if ($form->isSubmitted() && $form->isValid()) {
-            // $entityManager = $this->getDoctrine()->getManager();
-            // $entityManager->persist($task);
-            // $entityManager->flush();
+            //Appel d'UserManager
+
+            //SAVE fin
+            $this->userManager->save($creationHousing);
+
             return $this->redirectToRoute('Home');
         }
         return $this->render('form/form.html.twig', [
