@@ -7,16 +7,15 @@
 {% block body %}
 
     {% for announcement in announcements %}
-        {% if (announcement.id == id) %}
         <ul>
             <li>
                 {{ announcement.id }}
                 {{ announcement.title }}
                 {{ announcement.content }}
                 {{ announcement.price }}
-                {{ announcement.createdDate | date}}
+                {{ announcement.createdAt | date}}
             </li>
         </ul>
-        {% endif %}
     {% endfor %}
+    {{ dump(announcements) }}
 {% endblock %}

@@ -1,0 +1,12 @@
+header:
+  home: 'Home'
+  detail: 'Detail'
+  list: 'List'
+  creation: 'Creation'
+
+
+body:
+  Title: 'Title'
+  Price: 'Price'
+  Content: 'Content'
+  Submit: 'Submit'

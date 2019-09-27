@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                <a href='{{ path('Home') }}'>Home </a>
-                <a href='{{ path('Detail') }}'>Detail </a>
-                <a href='{{ path('List') }}'>Liste </a>
-                <a href='{{ path('Creation') }}'>Creation </a>
+                <a href='{{ path('Home') }}'>{{"header.home" |trans ({},'messages') }} </a>
+                <a href='{{ path('Detail') }}'>{{ "header.detail" |trans ({},'messages') }} </a>
+                <a href='{{ path('List') }}'>{{ "header.list" |trans ({},'messages') }} </a>
+                <a href='{{ path('Creation') }}'>{{ "header.creation" |trans ({},'messages') }}</a>
                 </li>
             </ul>
         </div>

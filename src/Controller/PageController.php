@@ -13,19 +13,18 @@ use Symfony\Component\HttpFoundation\Response;
 class PageController extends AbstractController
 {
     private $userManager;
-    /**
-     * @Route("/announcements/{id}",
-     *     defaults={"id"=1},
-     *     requirements = {"id" = "[0-9]+"},
-     *     name = "List"
-     *     )
-     */
 
     public function __construct(UserManager $userManager)
     {
         $this->userManager = $userManager;
     }
-
+    /**
+     * @Route("/announcements/{id}/{_locale}",
+     *     defaults={"id"=1},
+     *     requirements = {"id" = "[0-9]+"},
+     *     name = "List"
+     *     )
+     */
     public function listAnnouncement(){
         $limit = 10;
         $announcements = $this->userManager->findAnnouncement($limit);

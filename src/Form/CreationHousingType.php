@@ -21,15 +21,17 @@ class CreationHousingType extends AbstractType
         $builder
             ->add('title',TextType::class, [
                 'required' => true,
-                'label' => 'My House',
+                'label' => 'body.Title',
                 'attr' => [
                     'class' => 'ma-class-css'
                 ]
             ])
             ->add('price',\Symfony\Component\Form\Extension\Core\Type\IntegerType::class,
-                ['label' => 'Price'])
-            ->add('content', TextareaType::class)
-            ->add('submit', SubmitType::class)
+                ['label' => 'body.Price'])
+            ->add('content', TextareaType::class,
+                ['label' => 'body.Content'])
+            ->add('submit', SubmitType::class,
+                ['label' => 'body.Submit'])
         ;
     }
     public function configureOptions(OptionsResolver $resolver)

@@ -26,16 +26,16 @@ class AddController extends AbstractController
     }
 
     /**
-     * @Route("/announcements/add",
+     * @Route("/announcements/add/{_locale}",
      * methods={"GET","POST"},
-     *     name = "Creation"
+     *     name = "Creation",
      * )
      */
 
 
     public function index(Request $request)
     {
-        //Formulaire LA VUE DONC PAS TOUCHER
+        //Formulaire LA VUE
         $creationHousing = new CreationHousing();
         $form = $this->createForm(CreationHousingType::class, $creationHousing);
         $form->handleRequest($request);

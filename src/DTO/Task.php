@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Task
 {
     /**
-     * @Assert\NotNull()
+     * @Assert\NotNull(message="jgghf.kjgjh")
      * @Assert\Length(max = 50)
      */
     public $title;

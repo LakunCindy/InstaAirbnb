@@ -39,4 +39,9 @@ class UserManager
             ->getRepository(Housing::class)
             ->findHousingForAnnouncements($limit);
     }
+    public function findHousingById($id){
+        return $this->entityManager
+            ->getRepository(Housing::class)
+            ->findHousingById($id);
+    }
 }

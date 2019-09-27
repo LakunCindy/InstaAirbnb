@@ -1,0 +1,13 @@
+header:
+  home: 'Accueil'
+  detail: 'Détail'
+  list: 'Liste'
+  creation: 'Création'
+
+body:
+  Title: 'Titre'
+  Price: 'Prix'
+  Content: 'Description'
+  Submit: 'Valider'
+
+

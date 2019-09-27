@@ -28,4 +28,11 @@ use Doctrine\ORM\EntityRepository;
                 ->getQuery()
                 ->getResult();
         }
+        public function findHousingById($id){
+            return $this->createQueryBuilder('housing')
+                ->where('housing.id = :id')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult();
+        }
     }

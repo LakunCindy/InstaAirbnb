@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CreationHousing
 {
     /**
-     * @Assert\NotNull()
+     * @Assert\NotNull(message="title.title.not_blank")
      * @Assert\Type("string")
      */
     public $title;
@@ -17,6 +17,7 @@ class CreationHousing
      */
     public $content;
     /**
+     * @Assert\NotNull(message="price.price.not_blank")
      * @Assert\Type(type="numeric")
      */
     public $price;
